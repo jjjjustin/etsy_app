@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+</html>
+
+
+
+  <title>Etsy Search</title>
+
+
+</body>
+</html>
+
+<h1>Etsy Search</h1>
+<%= form_tag('/', method: 'get') do %>
+  <%= search_field_tag('query') %>
+  <%= submit_tag("Search!") %>
+<% end %>
+
+<ul>
+    <% @items.each do |item| %>
+      <div class='items'>
+      <li>
+        <%= item["title"] %>
+        <div class='price'> Price: <strong><%= item["price"] %></strong></div>
+        <div class='description'> Description: <%= item["description"] %></div>
+        <div class='category'> Categories: <%= item["category_path"] %></div>
+        <div class='materials'> Materials: <%= item["materials"] %></div>
+                <a target='_blank' href="<%= item['url'] %>">View Item!</a>
+        </li>
+      </div>
+         
+  
+    <% end %>
+</ul>
+</head>
+<body>
